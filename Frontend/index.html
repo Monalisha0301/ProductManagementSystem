@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Product<span>Hub</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#products">Products</a>
+            <a href="#addProduct">Add Product</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Dashboard Header -->
+        <section id="dashboard" class="hero">
+
+            <div>
+                <p class="small-title">PRODUCT MANAGEMENT</p>
+
+                <h1>Manage Your Products</h1>
+
+                <p>
+                    Add, update, search and manage all your products
+                    from one simple dashboard.
+                </p>
+            </div>
+
+            <div class="hero-icon">
+                📦
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div>
+                    <p>Total Products</p>
+                    <h2 id="totalProducts">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🏷️</div>
+                <div>
+                    <p>Categories</p>
+                    <h2 id="totalCategories">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div>
+                    <p>Total Value</p>
+                    <h2 id="totalValue">₹0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Add Product -->
+        <section id="addProduct" class="form-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">PRODUCT DETAILS</p>
+                    <h2>Add New Product</h2>
+                </div>
+            </div>
+
+            <div class="product-form">
+
+                <div class="input-group">
+                    <label>Product Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter product name">
+                </div>
+
+                <div class="input-group">
+                    <label>Price</label>
+                    <input
+                        type="number"
+                        id="price"
+                        placeholder="Enter price">
+                </div>
+
+                <div class="input-group">
+                    <label>Category</label>
+                    <input
+                        type="text"
+                        id="category"
+                        placeholder="Enter category">
+                </div>
+
+                <button class="primary-btn" onclick="addProduct()">
+                    + Add Product
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Products -->
+        <section id="products">
+
+            <div class="products-header">
+
+                <div>
+                    <p class="small-title">INVENTORY</p>
+                    <h2>All Products</h2>
+                </div>
+
+                <div class="search-box">
+                    🔍
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search products..."
+                        onkeyup="searchProducts()">
+                </div>
+
+            </div>
+
+
+            <!-- Product Cards -->
+            <div id="productList" class="product-grid"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Edit Product</h2>
+                <span onclick="closeModal()">×</span>
+            </div>
+
+            <input type="hidden" id="editId">
+
+            <div class="input-group">
+                <label>Product Name</label>
+                <input type="text" id="editName">
+            </div>
+
+            <div class="input-group">
+                <label>Price</label>
+                <input type="number" id="editPrice">
+            </div>
+
+            <div class="input-group">
+                <label>Category</label>
+                <input type="text" id="editCategory">
+            </div>
+
+            <button class="primary-btn" onclick="updateProduct()">
+                Save Changes
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>© 2026 ProductHub | Product Management System</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
